@@ -16,4 +16,16 @@ Promised wait for globals
     const AnotherGlobal = await awaitGlobal('AnotherGlobal');
     console.log(AnotherGlobal);
   }
+  
+  // custom timeout
+  awaitGlobal('SomeGlobal', 500).then(SomeGlobal => {
+    console.log(SomeGlobal);
+  });
+  
+  // array of globals
+  awaitGlobal(['SomeGlobal', 'AnotherGlobal']).then(globals => {
+    const [ SomeGlobal, AnotherGlobal ] = globals
+    console.log(SomeGlobal);
+    console.log(AnotherGlobal);
+  });
 ```
