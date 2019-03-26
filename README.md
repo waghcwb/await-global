@@ -28,4 +28,10 @@ Promised wait for globals
     console.log(SomeGlobal);
     console.log(AnotherGlobal);
   });
+  
+  // wait for inner methods
+  awaitGlobal(['SomeGlobal.inner.method']).then(globals => {
+    const [ method ] = globals
+    console.log(method);
+  });
 ```
